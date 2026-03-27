@@ -13,8 +13,8 @@ python -m pip install -U platformio
 # Set a temporary workspace directory to avoid long path issues
 $env:PLATFORMIO_WORKSPACE_DIR = "$env:TEMP\meshtastic_pio"
 
-# Optional: Set the hop count for the rebroadcasted message (default is 1)
-$env:PLATFORMIO_BUILD_FLAGS = "-DDM_RELAY_HOP_LIMIT=3"
+# Optional: Set the hop count and channel (defaults are hop count 1 and channel 0)
+$env:PLATFORMIO_BUILD_FLAGS = "-DDM_RELAY_HOP_LIMIT=3 -DDM_RELAY_CHANNEL=1"
 
 # Compile for the Heltec MeshPocket 10000mAh
 python -m platformio run -e heltec-mesh-pocket-10000

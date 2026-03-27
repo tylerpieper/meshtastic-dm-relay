@@ -7,6 +7,10 @@
 #define DM_RELAY_HOP_LIMIT 1
 #endif
 
+#ifndef DM_RELAY_CHANNEL
+#define DM_RELAY_CHANNEL 0
+#endif
+
 DMRelayModule *dmRelayModule;
 
 ProcessMessage DMRelayModule::handleReceived(const meshtastic_MeshPacket &mp) {
@@ -40,8 +44,8 @@ ProcessMessage DMRelayModule::handleReceived(const meshtastic_MeshPacket &mp) {
 
         // Set the destination to NODENUM_BROADCAST
         rebroadcast->to = NODENUM_BROADCAST;
-        // Set channel = 0 (Primary)
-        rebroadcast->channel = 0;
+        // Set channel to the configured build channel
+        rebroadcast->channel = DM_RELAY_CHANNEL;
         // Set hop_limit to the configured build limit
         rebroadcast->hop_limit = DM_RELAY_HOP_LIMIT;
         rebroadcast->want_ack = false;
