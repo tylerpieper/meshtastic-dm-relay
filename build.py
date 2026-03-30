@@ -6,6 +6,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="Build Custom Meshtastic Firmware overlay")
     parser.add_argument("--branch", default="master", help="Firmware branch or tag to build against")
+    parser.add_argument("--device", default="tbeam", help="Meshtastic device target environment (e.g. tbeam, heltec-v3)")
     parser.add_argument("--channel", default="0", help="Custom DM Relay Channel")
     parser.add_argument("--hop-limit", default="2", help="Hop limit for relayed DMs")
     args = parser.parse_args()
@@ -59,8 +60,8 @@ def main():
 
     print(f"Using PLATFORMIO_BUILD_FLAGS: {env_vars['PLATFORMIO_BUILD_FLAGS']}")
     
-    # We build the target 'tbeam' by default, this can be parameterized as well!
-    subprocess.run(["pio", "run", "-e", "tbeam"], cwd=firmware_dir, env=env_vars, check=True)
+    print(f"Building firmware for {args.device}...")
+    subprocess.run(["pio", "run", "-e", args.device], cwd=firmware_dir, env=env_vars, check=True)
 
 if __name__ == "__main__":
     main()
