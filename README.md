@@ -23,7 +23,7 @@ python build.py --branch master --device tbeam --channel 0 --hop-limit 2
 
 ### Options:
 - `--branch`: The branch or tag of the Meshtastic firmware you want to build against. Default is `master`. Example: `v2.4.0`
-- `--device`: The target device platformio environment. Default is `tbeam`. Example: `heltec-v3`
+- `--device`: **(Required)** The target device platformio environment. Example: `heltec-v3`
 - `--channel`: The LoRa channel to relay DMs to. Default is `0`. Example: `3`
 - `--hop-limit`: The maximum number of hops for the relayed DMs. Default is `2`. Example: `3`
 

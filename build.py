@@ -6,7 +6,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="Build Custom Meshtastic Firmware overlay")
     parser.add_argument("--branch", default="master", help="Firmware branch or tag to build against")
-    parser.add_argument("--device", default="tbeam", help="Meshtastic device target environment (e.g. tbeam, heltec-v3)")
+    parser.add_argument("--device", required=True, help="Meshtastic device target environment (e.g. tbeam, heltec-v3)")
     parser.add_argument("--channel", default="0", help="Custom DM Relay Channel")
     parser.add_argument("--hop-limit", default="2", help="Hop limit for relayed DMs")
     args = parser.parse_args()
