@@ -7,7 +7,7 @@ def main():
     parser = argparse.ArgumentParser(description="Build Custom Meshtastic Firmware overlay")
     parser.add_argument("--branch", default="master", help="Firmware branch or tag to build against")
     parser.add_argument("--channel", default="0", help="Custom DM Relay Channel")
-    parser.add_argument("--hop-limit", default="1", help="Hop limit for relayed DMs")
+    parser.add_argument("--hop-limit", default="2", help="Hop limit for relayed DMs")
     args = parser.parse_args()
 
     firmware_dir = "firmware"

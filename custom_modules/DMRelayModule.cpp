@@ -4,7 +4,7 @@
 #include "Router.h"
 
 #ifndef DM_RELAY_HOP_LIMIT
-#define DM_RELAY_HOP_LIMIT 1
+#define DM_RELAY_HOP_LIMIT 2
 #endif
 
 #ifndef DM_RELAY_CHANNEL

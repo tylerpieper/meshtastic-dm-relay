@@ -18,12 +18,12 @@ Instead of maintaining a massive fork of all of Meshtastic, this repository acts
 Run the python build script to generate the firmware:
 
 ```bash
-python build.py --branch master --channel 0 --hop-limit 1
+python build.py --branch master --channel 0 --hop-limit 2
 ```
 
 ### Options:
 - `--branch`: The branch or tag of the Meshtastic firmware you want to build against. Default is `master`. Example: `v2.4.0`
 - `--channel`: The LoRa channel to relay DMs to. Default is `0`. Example: `3`
-- `--hop-limit`: The maximum number of hops for the relayed DMs. Default is `1`. Example: `3`
+- `--hop-limit`: The maximum number of hops for the relayed DMs. Default is `2`. Example: `3`
 
 Once complete, the compiled binary will be located inside `firmware/.pio/build/tbeam/firmware.bin`.
