@@ -1,0 +1,14 @@
+# Visual Studio Code workspaces
+*.code-workspace
+
+# Build artifacts and cloned firmware
+firmware/
+.pio/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS generated files
+.DS_Store
+Thumbs.db
