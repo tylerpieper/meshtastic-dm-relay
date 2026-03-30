@@ -7,6 +7,7 @@ def main():
     parser = argparse.ArgumentParser(description="Build Custom Meshtastic Firmware overlay")
     parser.add_argument("--branch", default="master", help="Firmware branch or tag to build against")
     parser.add_argument("--channel", default="0", help="Custom DM Relay Channel")
+    parser.add_argument("--hop-limit", default="1", help="Hop limit for relayed DMs")
     args = parser.parse_args()
 
     firmware_dir = "firmware"
@@ -54,7 +55,7 @@ def main():
     
     # Inject our compiler directives
     build_flags = env_vars.get("PLATFORMIO_BUILD_FLAGS", "")
-    env_vars["PLATFORMIO_BUILD_FLAGS"] = f"{build_flags} -D DM_RELAY_CHANNEL={args.channel}".strip()
+    env_vars["PLATFORMIO_BUILD_FLAGS"] = f"{build_flags} -D DM_RELAY_CHANNEL={args.channel} -D DM_RELAY_HOP_LIMIT={args.hop_limit}".strip()
 
     print(f"Using PLATFORMIO_BUILD_FLAGS: {env_vars['PLATFORMIO_BUILD_FLAGS']}")
     
